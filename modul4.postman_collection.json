@@ -1,0 +1,98 @@
+{
+  "info": {
+    "name": "MLBB Shop - Orang 1 (Fondasi & Skin)",
+    "description": "Collection untuk endpoint health dan skin.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "Skin",
+      "item": [
+        {
+          "name": "Get All Skins",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/skins?page=1&limit=5",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "skins"],
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "limit", "value": "5" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Skins by Hero",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/skins?heroId=18",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "skins"],
+              "query": [{ "key": "heroId", "value": "18" }]
+            }
+          }
+        },
+        {
+          "name": "Get Skins by Rarity",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/skins?rarity=GRAND",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "skins"],
+              "query": [{ "key": "rarity", "value": "GRAND" }]
+            }
+          }
+        },
+        {
+          "name": "Get Skin Detail",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/skins/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "skins", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Skin Not Found",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/skins/99999",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "skins", "99999"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
